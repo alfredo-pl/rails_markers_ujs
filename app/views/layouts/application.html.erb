@@ -12,5 +12,7 @@
 
   <body>
     <%= yield %>
+
+    <%= javascript_pack_tag(params[:controller]) %>
   </body>
 </html>
