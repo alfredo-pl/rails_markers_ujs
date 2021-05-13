@@ -1,0 +1,33 @@
+<%= form_for @category, remote: true, data: { confirm: '¿desea continuar para crear este category?' } do |form| %>
+  <% if category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+      <% category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= form.label :public %>
+    <%= form.select :public,[false,true] %>
+  </div>
+    <div class="field">
+    <%= form.label :category_id %>
+    <%= form.select(:category_id, options_for_select(@categories_ids)) %>
+  </div>
+     <div class="field">
+    <%= form.label :type_id %>
+    <%= form.select(:type_id, options_for_select(@types)) %>
+  </div>
+  <div class="actions">
+    <%= form.submit data: {disable_with: "Creando"}%>
+  </div>
+<% end %>

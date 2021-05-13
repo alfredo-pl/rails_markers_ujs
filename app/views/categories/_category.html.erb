@@ -1,0 +1,15 @@
+<li id="<%= category.id%>">
+    <p><strong><%= category.name_type[0] %></strong>
+      <%if category.name_parent(category.category_id).empty?%> 
+           > <%= category.name %>
+        <% else %>
+        > <%= category.name_parent(category.category_id) %> >
+        <%= category.name %>
+    <% end %>
+        </p>
+        <p>
+        <%= link_to 'Show', category,remote: true , class: "btn btn-primary" %>
+        <%= link_to 'Edit', edit_category_path(category), remote: true,class: "btn btn-success" %>
+        <%= link_to 'Destroy', category,remote: true, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger" %>
+        </>
+</li>
