@@ -15,4 +15,40 @@ class Category < ApplicationRecord
     end
 
   end
+
+  def self.build_data
+    categories = Category.where(category_id: nil)
+    build(categories)
+  end
+
+  def self.build(all)
+    st = all.map{|t| info ={
+      "id" => t.id,
+      "name"=> t.name,
+      "subcategory_id" => t.subcategory_name,
+      "type_id" => t.one_type,
+      "makers"=>t.many_markers,
+      "public" => t.public
+    
+    }}
+  end
+
+  def subcategory_name
+    all = Category.references(:subcategory).where(category_id: id)
+
+    all.map{|v| info={
+      "id" => v.id,
+      "name" => v.name,
+      "subcategory_id" =>v.subcategory_name,
+      "markers" => v.many_markers
+    }}
+  end
+
+  def many_markers
+    Marker.references(:category).where(category_id: id)
+  end
+
+  def one_type
+    Type.references(:category).where(id: type_id)
+  end
 end

@@ -34,7 +34,10 @@ class CategoriesController < ApplicationController
    end
     
   end
-
+  def data_categories
+    @categories = Category.build_data
+    render json: @categories
+  end
   # PATCH/PUT /categories/1 or /categories/1.json
   def update
     @category.update(category_params)
