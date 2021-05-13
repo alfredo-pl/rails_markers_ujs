@@ -1,0 +1,8 @@
+<li id="<%= type.id%>">
+        <strong><%= type.name %></strong>
+        <p>
+        <%= link_to 'Show', type,remote: true , class: "btn btn-primary" %>
+        <%= link_to 'Edit', edit_type_path(type), remote: true,class: "btn btn-success" %>
+        <%= link_to 'Destroy', type,remote: true, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger" %>
+        </>
+</li>
