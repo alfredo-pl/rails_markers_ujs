@@ -1,0 +1,10 @@
+<li id="<%= marker.id%>">
+        <strong><%= marker.name %></strong>
+        <p><a href=<%= marker.url %> target="_blank"><%= marker.url %></a></p>
+        <p><%= marker.name_category[0] %></p>
+        <p>
+        <%= link_to 'Show', marker,remote: true , class: "btn btn-primary" %>
+        <%= link_to 'Edit', edit_marker_path(marker), remote: true,class: "btn btn-success" %>
+        <%= link_to 'Destroy', marker,remote: true, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger" %>
+        </>
+</li>
