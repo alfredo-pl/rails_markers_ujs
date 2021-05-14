@@ -1,6 +1,6 @@
 class Category < ApplicationRecord
-  belongs_to :category,optional: true
-  belongs_to :type
+  ##belongs_to :category,optional: true
+  belongs_to :type , foreign_key: true
   has_many :markers , dependent: :destroy
 
   def name_type
@@ -32,7 +32,9 @@ class Category < ApplicationRecord
     
     }}
   end
-
+def self.type_name(id)
+Type.find_by(id: id).name
+end
   def subcategory_name
     all = Category.references(:subcategory).where(category_id: id)
 
@@ -51,4 +53,6 @@ class Category < ApplicationRecord
   def one_type
     Type.references(:category).where(id: type_id)
   end
+
+  
 end
