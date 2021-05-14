@@ -8,8 +8,8 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import $ from "jquery"
-window.$ = $;
-
+window.$ = $
+import "chartkick/chart.js"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
