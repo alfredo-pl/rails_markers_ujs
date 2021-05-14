@@ -1,8 +1,8 @@
 class Category < ApplicationRecord
   ##belongs_to :category,optional: true
-  belongs_to :type 
+  belongs_to :type , foreign_key: "type_id", dependent: :destroy
   has_many :markers , dependent: :destroy
-
+  has_many :subcategories, class_name: "Category", foreign_key: "category_id", dependent: :destroy
   def name_type
     Type.references(:category).where(id: type_id).pluck :name
   end
