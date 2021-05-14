@@ -1,6 +1,6 @@
 class Category < ApplicationRecord
   ##belongs_to :category,optional: true
-  belongs_to :type , foreign_key: true
+  belongs_to :type 
   has_many :markers , dependent: :destroy
 
   def name_type

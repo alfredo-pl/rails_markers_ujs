@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2021_05_13_033850) do
     t.string "name"
     t.boolean "public"
     t.integer "category_id"
-    t.integer "type_id", null: true
+    t.integer "type_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_categories_on_category_id"

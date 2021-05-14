@@ -1,3 +1,3 @@
 class Type < ApplicationRecord
-    has_many :categories, through: :categories
+    has_many :categories
 end
